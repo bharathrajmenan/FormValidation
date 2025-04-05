@@ -1,41 +1,32 @@
 <html>
 <head>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f4f8; /* Light peaceful background */
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #1e1e1e; /* Dark background for a psycho/cult vibe */
-            font-family: 'Courier New', Courier, monospace; /* Monospace font for eerie look */
-            color: #f2f2f2; /* Light color for readability */
-            margin: 0;
-            overflow: hidden;
         }
 
         h1 {
             text-align: center;
-            color: #f00; /* Red text for danger/cult feeling */
-            font-size: 4rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.7);
+            color: #4a90e2; /* Soft blue for calmness */
+            margin-top: 50px;
+            font-size: 2.5rem;
         }
 
         form {
             max-width: 600px;
             margin: 0 auto;
             padding: 30px;
-            background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Red glowing border for intense feel */
-            transition: all 0.3s ease-in-out;
+            background-color: #ffffff;
+            border-radius: 10px; /* Soft rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: translateY(-5px); /* Gentle hover effect */
         }
 
         input[type="text"],
@@ -43,86 +34,88 @@
         select,
         textarea {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             margin: 10px 0;
-            border: 2px solid #f00; /* Red border for cult/psycho theme */
-            border-radius: 5px;
+            border: 1px solid #d1d8e0; /* Light gray border for subtle look */
+            border-radius: 8px;
             box-sizing: border-box;
             font-size: 16px;
-            color: #f2f2f2;
-            background-color: #333; /* Dark background for inputs */
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Subtle red text glow */
+            color: #333;
+            background-color: #f9f9f9; /* Soft light gray for input fields */
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4a90e2; /* Light blue focus border */
+            outline: none;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Light blue glow */
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        textarea {
+            resize: vertical;
+            font-size: 16px;
         }
 
         input[type="submit"],
         input[type="reset"],
         input[type="checkbox"] {
-            background-color: #ff0000; /* Blood red color */
-            color: #fff;
+            background-color: #4a90e2; /* Peaceful blue */
+            color: white;
             border: none;
-            border-radius: 5px;
-            padding: 15px 30px;
+            border-radius: 8px;
+            padding: 12px 25px;
             cursor: pointer;
             font-size: 16px;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: all 0.3s ease-in-out;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover,
-        input[type="reset"]:hover,
-        input[type="checkbox"]:hover {
-            background-color: #8b0000; /* Darker red on hover */
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+        input[type="reset"]:hover {
+            background-color: #357ab7; /* Slightly darker blue on hover */
         }
 
-        /* Error messages */
+        input[type="submit"]:active,
+        input[type="reset"]:active {
+            background-color: #2f68a1; /* Darker blue for active state */
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+
         .error-message {
-            color: #ff0000; /* Red error messages */
+            color: #e74c3c; /* Soft red for errors */
             font-size: 14px;
             margin-top: 5px;
         }
 
-        /* Text animations for a psycho/cult effect */
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #ff0000;
-            outline: none;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 1); /* Intense red glow on focus */
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #333;
         }
 
-        textarea {
-            resize: vertical;
-            font-family: 'Courier New', Courier, monospace; /* Monospace font */
-            color: #f2f2f2;
-        }
-
-        /* Glitch effect on the submit button */
-        input[type="submit"]:active {
-            animation: glitch 1s infinite; /* Glitch animation on button press */
-        }
-
-        /* Keyframes for glitch effect */
-        @keyframes glitch {
-            0% {
-                text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 0.9);
-                transform: translate(2px, 0) skew(0.2deg);
-            }
-            50% {
-                text-shadow: -5px -5px 10px rgba(255, 0, 0, 0.8), 5px 5px 15px rgba(255, 0, 0, 1);
-                transform: translate(-2px, 0) skew(-0.2deg);
-            }
-            100% {
-                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 10px rgba(255, 0, 0, 1);
-                transform: translate(2px, 0) skew(0.2deg);
-            }
+        .checkbox-label input {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>REGISTRATION FORM</h1>
+    <h1>Registration Form</h1>
     <form name="RegForm" onreset="resetErrors()" onsubmit="return validateForm()">
         <p>
             <label for="name">Name:</label>
@@ -159,16 +152,17 @@
             <label for="comment">College Name:</label>
             <textarea id="comment" name="Comment"></textarea>
         </p>
-        <p>
+        <p class="checkbox-label">
             <input type="checkbox" id="agree" name="Agree" />
             <label for="agree">I agree to the above information</label>
             <span id="agree-error" class="error-message"></span>
         </p>
         <p>
-            <input type="submit" value="submit" name="Submit" />
+            <input type="submit" value="Submit" name="Submit" />
             <input type="reset" value="Reset" name="Reset" />
         </p>
     </form>
+
     <script>
         function validateForm() {
             const name = document.getElementById("name").value;
@@ -217,10 +211,10 @@
                 agreeErr.textContent = "Please agree to the above information.";
                 isValid = false;
             }
-            if (isValid == true ) {
+            if (isValid) {
                 alert("Form submitted successfully!");
             } else {
-                return false; 
+                return false;
             }
         }
 
